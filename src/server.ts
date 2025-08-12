@@ -1,5 +1,5 @@
 import { Elysia } from "elysia";
-import { getAllAccounts } from "./api";
+import { demoRoutes } from "./routes/demo";
 
 const app = new Elysia()
   // Home route
@@ -7,25 +7,15 @@ const app = new Elysia()
     message: "Welcome to Drizzle API",
     endpoints: {
       getAllAccounts: "GET /accounts",
+      demoGet: "GET /demo",
+      demoPost: "POST /demo",
     },
   }))
+  
+  // Register demo routes
+  .use(demoRoutes)
 
   // Get all accounts
-  .get("/accounts", async () => {
-    try {
-      const accounts = await getAllAccounts();
-      return {
-        success: true,
-        count: accounts.length,
-        data: accounts,
-      };
-    } catch (error) {
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : "Unknown error",
-      };
-    }
-  })
   .listen(3000);
 
 console.log(
@@ -34,4 +24,3 @@ console.log(
 console.log("\nAvailable endpoints:");
 console.log("  GET http://localhost:3000/");
 console.log("  GET http://localhost:3000/accounts");
-
