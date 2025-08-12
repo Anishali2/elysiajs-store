@@ -1,12 +1,12 @@
 services:  
   - type: web
-    name: elysiajs-hello-world
+    name: elysiajs-store
     runtime: node
     repo: https://github.com/Anishali2/elysiajs-store 
     plan: free
     envVars:
     - key: BUN_VERSION
-      value: 1.1.0
+      value: 1.2.17
     region: oregon
     buildCommand: bun install
     startCommand: bun start
