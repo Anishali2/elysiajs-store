@@ -2,10 +2,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts",
-    "start": "NODE_ENV=production bun src/index.ts"
+    "start": "NODE_ENV=production bun src/server.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "elysia": "latest",
+    "drizzle-orm": "^0.44.4",
+    "postgres": "^3.4.7",
+    "@types/pg": "^8.15.5",
+    "dotenv": "^17.2.1"
   },
   "devDependencies": {
     "@types/bun": "latest"
